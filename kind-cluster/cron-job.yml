@@ -20,10 +20,10 @@ spec:
             - sh
             - -c
             - >
-              echo "Backup started"
+              echo "Backup started" &&
               mkdir -p /backups &&
               mkdir -p /demo-data &&
-              cp -r /demo-data /backups
+              cp -r /demo-data /backups &&
               echo "Backup completed"
             volumeMounts:
               - name: data-volume
