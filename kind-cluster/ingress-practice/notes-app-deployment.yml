@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: notes-app-deployment
+  namespace: nginx-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: notes-app
+  template:
+    metadata:
+      name: notes-app-deployment-pod
+      labels:
+        app: notes-app
+    spec:
+      containers:
+      - name: notes-app
+        image: deepansh02/notes-app:latest
+        ports:
+        - containerPort: 8000
