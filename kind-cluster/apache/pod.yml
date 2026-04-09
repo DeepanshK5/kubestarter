@@ -6,6 +6,6 @@ metadata:
 spec:
   containers:
   - name: apache-pod
-    image: apache-ns
+    image: httpd:latest
     ports:
     - containerPort: 80
