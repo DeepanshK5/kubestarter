@@ -1,0 +1,9 @@
+apiVersion: startnew.io/v1
+kind: Technology
+metadata:
+  name: backend
+  namespace: default
+spec:
+  name: backend
+  yoe: 5
+  expertise: expert

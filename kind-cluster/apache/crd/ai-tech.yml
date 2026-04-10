@@ -1,0 +1,9 @@
+apiVersion: startnew.io/v1
+kind: Technology
+metadata:
+  name: ai
+  namespace: default
+spec:
+  name: ai
+  yoe: 3
+  expertise: intermediate

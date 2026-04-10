@@ -1,0 +1,9 @@
+apiVersion: startnew.io/v1
+kind: Technology
+metadata:
+  name: devops
+  namespace: default
+spec:
+  name: devops
+  yoe: 1
+  expertise: intermediate
