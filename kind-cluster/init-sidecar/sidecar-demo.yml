@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: side-car-pod
+spec:
+  containers:
+  # Main application container (log producer)
+  - name: main-container
+    image: busybox:latest
+    command:
+      - sh
+      - -c
+      - |
+        echo "Main container running"
+        while true; do
+          echo "Hello World from main - $(date)" >> /var/log/log.txt
+          sleep 5
+        done
+    volumeMounts:
+    - name: shared-volume
+      mountPath: /var/log
+
+  # Sidecar container (log consumer)
+  - name: sidecar-container
+    image: busybox:latest
+    command:
+      - sh
+      - -c
+      - |
+        echo "Sidecar container running"
+        tail -f /var/log/log.txt
+    volumeMounts:
+    - name: shared-volume
+      mountPath: /var/log
+
+  volumes:
+  - name: shared-volume
+    emptyDir: {}
