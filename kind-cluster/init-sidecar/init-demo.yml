@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-container-demo
+spec:
+  initContainers:
+  - name: init-job
+    image: busybox:latest
+    command:
+      - sh
+      - -c
+      - |
+        echo "This init container is running"
+        sleep 10
+        echo "Init steps completed"
+
+  containers:
+  - name: main-container
+    image: busybox:latest
+    command:
+      - sh
+      - -c
+      - |
+        echo "Main container is now running"
+        sleep 3600
